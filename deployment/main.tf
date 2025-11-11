@@ -36,7 +36,7 @@ data "aws_ami" "amazon_linux_2" {
 # Create EC2 instance
 resource "aws_instance" "example" {
   ami           = data.aws_ami.amazon_linux_2.id
-  instance_type = "t2.micro"
+  instance_type = "t3.micro"
 
   # Using the first subnet from the fetched list
   subnet_id = tolist(data.aws_subnets.selected.ids)[0]
