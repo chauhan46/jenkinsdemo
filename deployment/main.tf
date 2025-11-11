@@ -1,12 +1,12 @@
-provider "aws" {
-  region = "ap-south-1"
+ provider "aws" {
+  region = "eu-north-1"
 }
 
 # Fetching the VPC named Application-Vpc
 data "aws_vpc" "selected" {
   filter {
     name   = "tag:Name"
-    values = ["my vpc"]
+    values = ["my-vpc"]
   }
 }
 
