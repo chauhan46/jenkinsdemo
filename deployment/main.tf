@@ -5,7 +5,7 @@ provider "aws" {
 data "aws_vpc" "selected" {
   filter {
     name   = "tag:Name"
-    values = ["my-vpc"]
+    values = ["Default-VPC"]
   }
 }
 
@@ -37,6 +37,6 @@ resource "aws_instance" "example" {
   subnet_id     = tolist(data.aws_subnets.selected.ids)[0]
 
   tags = {
-    Name = "MyInstance"
+    Name = "Terraform"
   }
 }
