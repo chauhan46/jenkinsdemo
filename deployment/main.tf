@@ -1,11 +1,11 @@
 provider "aws" {
-  region = "eu-north-1"
+  region = "us-east-1"
 }
 
 data "aws_vpc" "selected" {
   filter {
     name   = "tag:Name"
-    values = ["Default-VPC"]
+    values = ["default"]
   }
 }
 
