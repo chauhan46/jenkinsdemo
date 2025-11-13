@@ -5,7 +5,7 @@ provider "aws" {
 data "aws_vpc" "selected" {
   filter {
     name   = "tag:Name"
-    values = ["default"]
+    values = ["Vpc"]
   }
 }
 
