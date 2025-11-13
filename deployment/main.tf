@@ -2,22 +2,21 @@ provider "aws" {
   region = "us-east-1"
 }
 
+#  Directly reference your VPC by ID
 data "aws_vpc" "selected" {
-  filter {
-    name   = "tag:Name"
-    values = ["Vpc"]
-  }
+  id = "vpc-08c662b7cbfd180fc"
 }
 
 data "aws_subnets" "selected" {
   filter {
     name   = "vpc-id"
-    values = [data.aws_vpc.selected.id]
+    values = ["vpc-08c662b7cbfd180fc"] 
   }
 }
 
 data "aws_ami" "amazon_linux_2" {
   most_recent = true
+
   filter {
     name   = "name"
     values = ["amzn2-ami-hvm-*-x86_64-gp2"]
